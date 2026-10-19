@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KXG7E17TSX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KXG7E17TSX');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pro Football World</title>
+<style>
+:root{--bg:#07130d;--card:#0e2418;--ink:#eaf6ee;--mut:#9bb8a5;--acc:#2ee86f;--gold:#ffc83d;--line:#1d3b2a;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]){--bg:#f1f8f3;--card:#fff;--ink:#0b1f14;--mut:#44604f;--acc:#0a9b43;--gold:#b97f00;--line:#cfe3d6}}
+:root[data-theme="dark"]{--bg:#07130d;--card:#0e2418;--ink:#eaf6ee;--mut:#9bb8a5;--acc:#2ee86f;--gold:#ffc83d;--line:#1d3b2a}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.6;overflow-x:hidden}
+canvas#bg{position:fixed;inset:0;width:100%;height:100%;z-index:0;opacity:.8;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+nav{position:sticky;top:env(safe-area-inset-top,0px);display:flex;gap:18px;justify-content:center;padding:12px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:5;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-weight:600;font-size:.9rem}nav a:hover{color:var(--acc)}
+.hero{min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px 20px}
+.hero h1{font-size:clamp(2.2rem,7vw,4.6rem);margin:0;letter-spacing:-1px}
+.rot{display:block;height:1.2em;overflow:hidden;color:var(--acc);font-size:clamp(1.8rem,6vw,3.6rem);font-weight:800;margin-top:8px}
+.rot span{display:block;animation:swap .8s ease both}.rot span.out{animation:out .6s ease both}@keyframes out{to{transform:translateY(-100%);opacity:0}}
+.beams{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.beams i{position:absolute;top:-20%;width:26vw;height:140%;background:linear-gradient(180deg,color-mix(in srgb,var(--acc) 30%,transparent),transparent 70%);filter:blur(30px);opacity:.35;transform-origin:top center;animation:sweep 9s ease-in-out infinite alternate}
+.beams i:nth-child(1){left:5%;animation-delay:0s}.beams i:nth-child(2){left:38%;animation-delay:-3s;animation-duration:12s}.beams i:nth-child(3){left:70%;animation-delay:-6s;animation-duration:10s}
+@keyframes sweep{from{transform:rotate(-18deg)}to{transform:rotate(18deg)}}
+.pitch{position:fixed;left:50%;top:50%;width:70vmin;height:70vmin;margin:-35vmin 0 0 -35vmin;border:2px solid var(--acc);border-radius:50%;opacity:.12;z-index:0;pointer-events:none;animation:spin 40s linear infinite}
+.pitch:after{content:'';position:absolute;inset:-2px 49%;background:var(--acc)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.fw{position:fixed;z-index:0;pointer-events:none;font-weight:900;letter-spacing:2px;color:var(--acc);opacity:0;white-space:nowrap;animation:fw 6s ease-in-out forwards}
+@keyframes fw{0%{opacity:0;transform:translateY(40px) scale(.8)}20%{opacity:.28}70%{opacity:.28}100%{opacity:0;transform:translateY(-70px) scale(1.1)}}
+@keyframes swap{from{transform:translateY(100%);opacity:0}to{transform:none;opacity:1}}
+.hero p{max-width:620px;color:var(--mut);font-size:1.1rem}
+.btn{display:inline-block;background:var(--acc);color:#04210f;padding:12px 26px;border-radius:30px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font-size:1rem;margin:6px}
+.btn:hover{transform:translateY(-2px)}
+section{max-width:1100px;margin:auto;padding:60px 20px}
+h2{font-size:2rem;margin:0 0 6px}h2+p{color:var(--mut);margin:0 0 28px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:var(--acc)}
+.big{font-size:2.6rem;font-weight:800;color:var(--gold);line-height:1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:16px;text-align:center}
+.next{background:linear-gradient(135deg,var(--card),var(--bg));border:1px solid var(--acc);border-radius:20px;padding:28px}
+#cd{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px}
+#cd div{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 16px;text-align:center;min-width:76px}
+#cd b{display:block;font-size:1.8rem;color:var(--acc)}
+.player{cursor:pointer}.player h3{margin:0 0 4px}.tag{color:var(--mut);font-size:.9rem}
+.more{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.player.open .more{max-height:900px}
+.more p{margin:12px 0 8px}
+.tl{list-style:none;padding:0 0 0 16px;margin:10px 0 0;border-left:2px solid var(--acc)}
+.tl li{margin:0 0 10px;font-size:.92rem;color:var(--mut)}.tl li b{color:var(--ink)}
+.lockbox{background:var(--card);border:2px dashed var(--gold);border-radius:18px;padding:26px;text-align:center}
+.lockbox input{padding:12px 16px;border-radius:30px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1rem;text-align:center}
+#msg{min-height:1.4em;margin-top:8px;color:var(--gold)}
+#countries{display:none}
+.unlocked #countries{display:grid}.unlocked .lockbox{display:none}
+footer{text-align:center;color:var(--mut);padding:30px 20px 50px;font-size:.9rem}
+.fade{opacity:0;transform:translateY(24px);transition:.7s}.fade.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<canvas id="bg"></canvas>
+<nav><a href="#top">Home</a><a href="#cups">World Cups</a><a href="#next">Next Match</a><a href="#players">Players</a><a href="#countries-sec">Countries</a></nav>
+
+<header class="hero" id="top">
+  <h1>Pro Football World</h1>
+  <span class="rot" id="rot"><span>Legends</span></span>
+  <p>Everything about professional football: World Cups, upcoming matches, the players behind the legends, how they rose from the streets to the biggest stages, and which nation is the best.</p>
+  <div><a class="btn" href="#players">Meet the players</a><a class="btn" href="#countries-sec">Country records</a></div>
+</header>
+
+<main>
+<section id="cups" class="fade">
+  <h2>World Cup in numbers</h2><p>Held every four years since 1930. The 2026 edition was the biggest ever.</p>
+  <div class="stats">
+    <div class="card"><div class="big">23</div>World Cups played (1930–2026)</div>
+    <div class="card"><div class="big">8</div>Different nations that have won it</div>
+    <div class="card"><div class="big">48</div>Teams at 2026 (USA, Canada, Mexico)</div>
+    <div class="card"><div class="big">Spain</div>2026 champions, 1–0 over Argentina</div>
+  </div>
+</section>
+
+<section id="next" class="fade">
+  <div class="next">
+    <h2>Next World Cup: 2030</h2>
+    <p>Hosted by Morocco, Spain and Portugal, with three opening matches in Uruguay, Argentina and Paraguay to celebrate 100 years since the first tournament in 1930. FIFA sets the exact match dates, so check fifa.com for the final schedule.</p>
+    <div id="cd"></div>
+    <p style="font-size:.9rem;color:var(--mut)">Countdown targets June 2030 as an estimate. For the very next international and club fixtures, check the official FIFA or league calendar, as dates change often.</p>
+  </div>
+</section>
+
+<section id="players" class="fade">
+  <h2>Players and their stories</h2><p>Tap a player to open their story, goals and career timeline from youth until now.</p>
+  <div class="grid" id="pgrid"></div>
+</section>
+
+<section id="countries-sec" class="fade">
+  <h2>World Cup records by country</h2><p>Titles, years and who is the best nation of all time.</p>
+  <div class="lockbox" id="lock">
+    <h3>Unlock the full country details</h3>
+    <p>Get the complete description for just <b style="color:var(--gold)">$2</b>. Message us on WhatsApp, pay, and receive your access code.</p>
+    <a class="btn" href="https://wa.me/171750475568" target="_blank" rel="noopener">Buy on WhatsApp</a><br><br>
+    <input id="code" type="password" placeholder="Enter access code">
+    <button class="btn" onclick="unlock()">Unlock</button>
+    <div id="msg"></div>
+  </div>
+  <div class="grid" id="countries"></div>
+</section>
+</main>
+
+<footer>© Pro Football World. Football facts are updated through the 2026 World Cup.</footer>
+
+<script>
+// Rotating words
+var words=["Legends","Goals","Glory","World Cups","Champions","Passion"],wi=0,r=document.getElementById('rot');
+setInterval(function(){var s=r.firstChild;s.className='out';setTimeout(function(){wi=(wi+1)%words.length;r.innerHTML='<span>'+words[wi]+'</span>'},550)},2400);
+// Floating words that come and go in the background
+var fl=['GOAL!','WORLD CUP','CHAMPIONS','PASSION','PENALTY','LEGENDS','MESSI','RONALDO','MBAPP\u00c9','SPAIN 2026','VICTORY','GLORY','HAT-TRICK','FINAL'];
+function spawn(){var e=document.createElement('div');e.className='fw';e.textContent=fl[Math.floor(Math.random()*fl.length)];
+ e.style.left=(Math.random()*80+2)+'vw';e.style.top=(Math.random()*80+8)+'vh';e.style.fontSize=(1.2+Math.random()*2.6)+'rem';
+ document.body.appendChild(e);setTimeout(function(){e.remove()},6200)}
+var T=0,crowd=[],sparks=[];
+for(var k=0;k<320;k++)crowd.push({x:Math.random(),y:Math.random(),p:Math.random()*160});
+function drawStadium(){T++;var hz=H*.5,ph=H-hz,i,c;cx.globalAlpha=1;
+ var g=cx.createLinearGradient(0,0,0,H);g.addColorStop(0,'#030c1a');g.addColorStop(.5,'#0a2417');g.addColorStop(1,'#14532d');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+ // crowd with camera flashes
+ for(i=0;i<crowd.length;i++){c=crowd[i];var f=((T+c.p)%160)<3;cx.fillStyle=f?'#ffffff':'#6f9a84';cx.globalAlpha=f?1:.35;var s=f?4:2;cx.fillRect(c.x*W,c.y*hz*.92,s,s)}
+ cx.globalAlpha=1;
+ // mowed pitch stripes
+ for(i=0;i<10;i++){var y1=hz+ph*Math.pow(i/10,1.6),y2=hz+ph*Math.pow((i+1)/10,1.6);cx.fillStyle=i%2?'#1a6b36':'#15592d';cx.fillRect(0,y1,W,y2-y1+1)}
+ // pitch lines
+ cx.strokeStyle='rgba(255,255,255,.55)';cx.lineWidth=2;
+ cx.beginPath();cx.moveTo(W*.3,hz);cx.lineTo(-W*.15,H);cx.moveTo(W*.7,hz);cx.lineTo(W*1.15,H);cx.moveTo(W*.18,hz+ph*.28);cx.lineTo(W*.82,hz+ph*.28);cx.stroke();
+ cx.beginPath();cx.ellipse(W/2,hz+ph*.28,W*.13,ph*.07,0,0,7);cx.stroke();
+ // floodlights
+ [.07,.93].forEach(function(p){var x=W*p,pulse=.5+.5*Math.sin(T*.03+p*9);var rg=cx.createRadialGradient(x,hz*.35,2,x,hz*.35,W*.2);rg.addColorStop(0,'rgba(255,250,200,'+(.55+pulse*.25)+')');rg.addColorStop(1,'rgba(255,250,200,0)');cx.fillStyle=rg;cx.fillRect(x-W*.2,0,W*.4,hz*1.2);cx.fillStyle='#38465a';cx.fillRect(x-3,hz*.35,6,hz*.7)});
+ // bouncing ball with shadow
+ var bx=((T*2.4)%(W+160))-80,gy=hz+ph*.62,by=gy-Math.abs(Math.sin(T*.055))*H*.26,sh=1-Math.abs(Math.sin(T*.055))*.6;
+ cx.fillStyle='rgba(0,0,0,.35)';cx.beginPath();cx.ellipse(bx,gy+18,22*sh,6*sh,0,0,7);cx.fill();
+ cx.fillStyle='#fff';cx.beginPath();cx.arc(bx,by,17,0,7);cx.fill();
+ cx.fillStyle='#111';for(i=0;i<5;i++){var a=T*.08+i*1.2566;cx.beginPath();cx.arc(bx+Math.cos(a)*9,by+Math.sin(a)*9,3.2,0,7);cx.fill()}
+ cx.beginPath();cx.arc(bx,by,4,0,7);cx.fill();
+ // fireworks
+ if(T%110===0){var fx=W*(.15+Math.random()*.7),fy=hz*(.2+Math.random()*.4),col='hsl('+Math.floor(Math.random()*360)+',95%,62%)';for(i=0;i<46;i++){var an=Math.random()*6.283,sp=1+Math.random()*3;sparks.push({x:fx,y:fy,vx:Math.cos(an)*sp,vy:Math.sin(an)*sp,l:70,c:col})}}
+ for(i=sparks.length-1;i>=0;i--){var q=sparks[i];q.x+=q.vx;q.y+=q.vy;q.vy+=.04;q.l--;if(q.l<=0){sparks.splice(i,1);continue}cx.globalAlpha=q.l/70;cx.fillStyle=q.c;cx.fillRect(q.x,q.y,3,3)}
+ cx.globalAlpha=1}
+
+// Moving background: floating footballs and lines
+var cv=document.getElementById('bg'),cx=cv.getContext('2d'),W,H,balls=[];
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+for(var i=0;i<0;i++)balls.push({x:Math.random()*2000,y:Math.random()*1200,r:4+Math.random()*14,s:.3+Math.random()*.9,a:Math.random()*6});
+(function loop(){cx.clearRect(0,0,W,H);drawStadium();var g=getComputedStyle(document.documentElement).getPropertyValue('--acc')||'#2ee86f';
+ cx.strokeStyle=g;cx.fillStyle=g;
+ balls.forEach(function(b){b.y-=b.s;b.x+=Math.sin(b.a+=.01)*.6;if(b.y<-30){b.y=H+30;b.x=Math.random()*W}
+  cx.globalAlpha=.25;cx.beginPath();cx.arc(b.x,b.y,b.r,0,7);cx.stroke();
+  cx.globalAlpha=.12;cx.beginPath();cx.arc(b.x,b.y,b.r*.45,0,7);cx.fill()});
+ requestAnimationFrame(loop)})();
+
+// Countdown (estimate: 1 June 2030)
+function cd(){var d=new Date('2030-06-01T00:00:00')-new Date();if(d<0)d=0;
+ var t=[['Days',Math.floor(d/864e5)],['Hours',Math.floor(d/36e5)%24],['Min',Math.floor(d/6e4)%60],['Sec',Math.floor(d/1e3)%60]];
+ document.getElementById('cd').innerHTML=t.map(function(x){return '<div><b>'+x[1]+'</b>'+x[0]+'</div>'}).join('')}
+cd();setInterval(cd,1000);
+
+// Players
+var P=[
+{n:'Lionel Messi',c:'Argentina',pos:'Forward',g:'900+ career goals; 8 goals at the 2026 World Cup',s:'Born in Rosario, Messi was diagnosed with a growth hormone deficiency as a boy. FC Barcelona offered to pay for treatment and signed him at 13, and he moved to Spain with his family. He rose through La Masia to become one of the greatest players ever, and crowned his career by winning the 2022 World Cup with Argentina.',t:[['Age 5','Starts playing at Newell\u2019s Old Boys in Rosario'],['2000','Joins Barcelona\u2019s academy at 13'],['2004','Senior debut for Barcelona'],['2021','Wins Copa Am\u00e9rica, first senior title with Argentina'],['2022','Wins the World Cup in Qatar'],['2026','Plays his sixth World Cup, reaches the final']]},
+{n:'Cristiano Ronaldo',c:'Portugal',pos:'Forward',g:'950+ career goals, the most in men\u2019s football history',s:'Raised in a modest home on the island of Madeira, Ronaldo left home at 12 to join Sporting Lisbon\u2019s academy. Famous for his work ethic, he turned raw speed into elite finishing and won league titles in England, Spain and Italy.',t:[['Age 12','Moves to Sporting CP academy'],['2003','Signs for Manchester United'],['2009','Joins Real Madrid, becomes record scorer'],['2016','Wins the European Championship with Portugal'],['2023','Joins Al Nassr in Saudi Arabia'],['Now','Still playing and scoring at the top level']]},
+{n:'Kylian Mbapp\u00e9',c:'France',pos:'Forward',g:'10 goals at the 2026 World Cup and Golden Boot; reported as the World Cup all-time top scorer',s:'Growing up in Bondy near Paris, Mbapp\u00e9 learned the game in a football-loving family. A prodigy at Monaco, he won the 2018 World Cup at 19 and scored a hat-trick in the 2022 final. He now plays for Real Madrid.',t:[['Age 6','Joins AS Bondy, his local club'],['2015','Debut for Monaco at 16'],['2018','World Cup winner with France'],['2022','Hat-trick in the final, runner-up'],['2024','Signs for Real Madrid'],['2026','Wins the Golden Boot']]},
+{n:'Erling Haaland',c:'Norway',pos:'Striker',g:'7 goals at the 2026 World Cup; one of the fastest to reach 100 Premier League goals',s:'The son of former player Alf-Inge Haaland, Erling grew up in Bryne, Norway, and exploded at Red Bull Salzburg and Dortmund. At Manchester City he broke the Premier League single-season scoring record in 2022-23.',t:[['Youth','Plays for Bryne FK'],['2019','Joins Red Bull Salzburg'],['2020','Moves to Borussia Dortmund'],['2022','Signs for Manchester City'],['2023','Wins the treble'],['2026','Leads Norway to the World Cup quarter-finals']]},
+{n:'Lamine Yamal',c:'Spain',pos:'Winger',g:'Youngest star of a new generation; key to Spain\u2019s 2026 triumph',s:'Born in Esplugues de Llobregat near Barcelona, Yamal came through La Masia and made his Barcelona debut at 15. At 16 he starred as Spain won Euro 2024, and at 19 he helped Spain win the 2026 World Cup.',t:[['Youth','Rises through La Masia'],['2023','Barcelona debut at 15'],['2024','Wins Euro 2024 with Spain'],['2025','Becomes a Barcelona regular and star'],['2026','World Cup champion at 19']]},
+{n:'Pel\u00e9',c:'Brazil',pos:'Forward (legend)',g:'About 1,280 career goals claimed; 12 World Cup goals',s:'Born Edson Arantes do Nascimento in a poor family in Minas Gerais, he learned football with a sock stuffed with newspaper. He burst onto the world stage at 17 in 1958 and is the only player to win three World Cups.',t:[['Youth','Plays street football in Bauru'],['1956','Signs for Santos at 15'],['1958','Wins first World Cup at 17'],['1962','Second World Cup'],['1970','Third World Cup, leads Brazil\u2019s greatest team'],['2022','Passes away, remembered worldwide']]}
+];
+var pg=document.getElementById('pgrid');
+pg.innerHTML=P.map(function(p,i){return '<div class="card player" onclick="this.classList.toggle(\'open\')"><h3>'+p.n+'</h3><div class="tag">'+p.c+' \u00b7 '+p.pos+'</div><div class="more"><p>'+p.s+'</p><p><b style="color:var(--gold)">Goals:</b> '+p.g+'</p><ul class="tl">'+p.t.map(function(x){return '<li><b>'+x[0]+':</b> '+x[1]+'</li>'}).join('')+'</ul></div><div class="tag" style="margin-top:8px">Tap to open \u25be</div></div>'}).join('');
+
+// Countries
+var C=[
+['Brazil',5,'1958, 1962, 1970, 1994, 2002','The best nation in World Cup history: most titles and the only team to play every tournament.'],
+['Germany',4,'1954, 1974, 1990, 2014','Known for consistency, with the most semi-finals of any nation.'],
+['Italy',4,'1934, 1938, 1982, 2006','Masters of defense, back-to-back champions in the 1930s.'],
+['Argentina',3,'1978, 1986, 2022','Led by Maradona and then Messi; runners-up again in 2026.'],
+['France',2,'1998, 2018','Lost the 2022 final on penalties; finished fourth in 2026.'],
+['Uruguay',2,'1930, 1950','Won the very first World Cup on home soil.'],
+['Spain',2,'2010, 2026','Beat Argentina 1-0 in the 2026 final, a first title since 2010.'],
+['England',1,'1966','Champions at Wembley; finished third in 2026.']
+];
+document.getElementById('countries').innerHTML=C.map(function(c){return '<div class="card"><h3>'+c[0]+'</h3><div class="big">'+c[1]+'</div><div class="tag">World Cup titles</div><p><b>Years:</b> '+c[2]+'</p><p>'+c[3]+'</p></div>'}).join('');
+
+function unlock(){var v=document.getElementById('code').value.trim(),m=document.getElementById('msg');
+ if(v==='123789'){document.getElementById('countries-sec').classList.add('unlocked');m.textContent='';}else{m.textContent='Wrong code. Buy yours on WhatsApp.'}}
+
+// Scroll fade-in
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting)x.target.classList.add('in')})},{threshold:.1});
+document.querySelectorAll('.fade').forEach(function(el){io.observe(el)});
+</script>
+</body>
+</html>
